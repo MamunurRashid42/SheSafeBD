@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Incident – SheSafe BD</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff1f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #c2185b;
+    }
+
+    #confirmation {
+      display: none;
+      color: green;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Report an Incident</h1>
+    <form action="report-submit.php" method="POST" enctype="multipart/form-data">
+      <label for="name">Name (Optional):</label>
+      <input type="text" id="name" name="name" placeholder="Your name (if you wish)">
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" placeholder="Your phone number" required>
+
+      <label for="incident">Type of Incident:</label>
+      <select id="incident" name="incident" required>
+        <option value="">-- Select Type --</option>
+        <option>Harassment</option>
+        <option>Violence</option>
+        <option>Stalking</option>
+        <option>Abuse</option>
+        <option>Others</option>
+      </select>
+
+      <label for="date">Date & Time:</label>
+      <input type="datetime-local" id="date" name="date" required>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" placeholder="e.g. Dhanmondi, Dhaka" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="5" placeholder="Describe the incident..." required></textarea>
+
+      <label for="photo">Upload Photo (Optional):</label>
+      <input type="file" id="photo" name="photo" accept="image/*">
+
+      <button type="submit" class="submit-btn">Submit Report</button>
+    </form>
+
+    <p id="confirmation">✅ Your report has been submitted. Thank you!</p>
+  </div>
+</body>
+</html>
